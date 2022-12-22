@@ -1,8 +1,11 @@
-sal_hour=20;
+salary_per_hour=20;
 working_hour=0;
 month_sal=0;
+total_working_hour=0;
 
-for ((day=1; day<=20; day++))
+day=1;
+
+while [[ $day -le 20 && $total_working_hour -lt 100 ]] 
 do
 
 	is_present=$((RANDOM%3));
@@ -25,14 +28,20 @@ do
 			;;
 	
 	esac
+	total_working_hour=$(($total_working_hour + $working_hour))
+	echo " $total_working_hour "
+	
+	
 
-	ttl_salary=$(($sal_hour * $working_hour));
+	ttl_salary=$(($salary_per_hour * $working_hour));
 	
 	echo  " total salary of employee $ttl_salary ";
 	
+	
 	month_sal=$(($month_sal + $ttl_salary));
+	
+	((day++));
 
 done
-
 
 echo  " total salary of employee in month $month_sal ";
