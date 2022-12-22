@@ -1,8 +1,7 @@
-#!/bin/bash
-is_present=$((RANDOM%2));
-salary_per_hour=20;
+is_prent=$((RANDOM%3));
+sal_hour=20;
 working_hour=0;
-case $is_present in 
+case $is_prent in 
 		0)
 				echo "employee is apsent ";
 				working_hour=0;
@@ -14,12 +13,15 @@ case $is_present in
 				working_hour=8;
 				 
 		;;
-		
+		2)
+				echo "employee as part time";
+
+				working_hour=4;
+		;;
 
 esac
 
-
-ttl_salary=$(($salary_per_hour * $working_hour));
+ttl_salary=$(($sal_hour * $working_hour));
 
 
 
